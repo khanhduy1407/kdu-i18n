@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+  "tagDefinitions": [
+    {
+      "tagName": "@KduI18nTip",
+      "syntaxKind": "block"
+    },
+    {
+      "tagName": "@KduI18nDanger",
+      "syntaxKind": "block"
+    },
+    {
+      "tagName": "@KduI18nWarning",
+      "syntaxKind": "block"
+    },
+    {
+      "tagName": "@KduI18nSee",
+      "syntaxKind": "block"
+    },
+    {
+      "tagName": "@KduI18nGeneral",
+      "syntaxKind": "modifier"
+    },
+    {
+      "tagName": "@KduI18nLegacy",
+      "syntaxKind": "modifier"
+    },
+    {
+      "tagName": "@KduI18nComposition",
+      "syntaxKind": "modifier"
+    },
+    {
+      "tagName": "@KduI18nDirective",
+      "syntaxKind": "modifier"
+    },
+    {
+      "tagName": "@KduI18nComponent",
+      "syntaxKind": "modifier"
+    },
+    {
+      "tagName": "@KduI18nInjection",
+      "syntaxKind": "modifier"
+    }
+  ]
+}

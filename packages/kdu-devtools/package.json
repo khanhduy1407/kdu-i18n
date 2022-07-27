@@ -1,0 +1,48 @@
+{
+  "name": "@kdu-i18n/kdu-devtools",
+  "version": "9.1.10-beta.0",
+  "description": "@kdu-i18n/kdu-devtools",
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "kdu",
+    "kdu-devtools"
+  ],
+  "license": "MIT",
+  "author": "NKDuy",
+  "homepage": "https://github.com/khanhduy1407/kdu-i18n/tree/master/packages/kdu-devtools#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdu-i18n.git",
+    "directory": "packages/kdu-devtools"
+  },
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdu-i18n/issues"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "main": "index.js",
+  "module": "dist/kdu-devtools.esm-bundler.js",
+  "types": "dist/kdu-devtools.d.ts",
+  "dependencies": {
+    "@kdu-i18n/message-resolver": "9.1.10-beta.0",
+    "@kdu-i18n/runtime": "9.1.10-beta.0",
+    "@kdu-i18n/shared": "9.1.10-beta.0"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "buildOptions": {
+    "name": "KduI18nKduDevtools",
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

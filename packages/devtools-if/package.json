@@ -1,0 +1,46 @@
+{
+  "name": "@kdu-i18n/devtools-if",
+  "version": "9.1.10-beta.0",
+  "description": "@kdu-i18n/devtools-if",
+  "keywords": [
+    "devtools",
+    "i18n",
+    "internationalization",
+    "kdu"
+  ],
+  "license": "MIT",
+  "author": "NKDuy",
+  "homepage": "https://github.com/khanhduy1407/kdu-i18n/tree/master/packages/devtools-if#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdu-i18n.git",
+    "directory": "packages/devtools-if"
+  },
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdu-i18n/issues"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "main": "index.js",
+  "module": "dist/devtools-if.esm-bundler.js",
+  "types": "dist/devtools-if.d.ts",
+  "dependencies": {
+    "@kdu-i18n/shared": "9.1.10-beta.0"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "buildOptions": {
+    "name": "KduI18nDevToolsIf",
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

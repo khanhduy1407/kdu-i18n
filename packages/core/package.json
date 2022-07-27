@@ -1,0 +1,54 @@
+{
+  "name": "@kdu-i18n/core",
+  "version": "9.1.10-beta.0",
+  "description": "@kdu-i18n/core",
+  "keywords": [
+    "core",
+    "fundamental",
+    "i18n",
+    "internationalization",
+    "kdu"
+  ],
+  "license": "MIT",
+  "author": "NKDuy",
+  "homepage": "https://github.com/khanhduy1407/kdu-i18n/tree/master/packages/core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdu-i18n.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdu-i18n/issues"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "main": "index.js",
+  "module": "dist/core.runtime.esm-bundler.js",
+  "unpkg": "dist/core.global.js",
+  "jsdelivr": "dist/core.global.js",
+  "types": "dist/core.d.ts",
+  "dependencies": {
+    "@kdu-i18n/core-base": "9.1.10-beta.0"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "buildOptions": {
+    "name": "KduI18nCore",
+    "formats": [
+      "esm-bundler",
+      "esm-bundler-runtime",
+      "esm-browser",
+      "esm-browser-runtime",
+      "cjs",
+      "global",
+      "global-runtime"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

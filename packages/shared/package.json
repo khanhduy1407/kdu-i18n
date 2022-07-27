@@ -1,0 +1,42 @@
+{
+  "name": "@kdu-i18n/shared",
+  "version": "9.1.10-beta.0",
+  "description": "@kdu-i18n/shared",
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "kdu"
+  ],
+  "license": "MIT",
+  "author": "NKDuy",
+  "homepage": "https://github.com/khanhduy1407/kdu-i18n/tree/master/packages/shared#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdu-i18n.git",
+    "directory": "packages/shared"
+  },
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdu-i18n/issues"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "main": "index.js",
+  "module": "dist/shared.esm-bundler.js",
+  "types": "dist/shared.d.ts",
+  "engines": {
+    "node": ">= 10"
+  },
+  "buildOptions": {
+    "name": "KduI18nShared",
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

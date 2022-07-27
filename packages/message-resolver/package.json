@@ -1,0 +1,43 @@
+{
+  "name": "@kdu-i18n/message-resolver",
+  "version": "9.1.10-beta.0",
+  "description": "@kdu-i18n/message-resolver",
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "kdu",
+    "resolver"
+  ],
+  "license": "MIT",
+  "author": "NKDuy",
+  "homepage": "https://github.com/khanhduy1407/kdu-i18n/tree/master/packages/message-resolver#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdu-i18n.git",
+    "directory": "packages/message-resolver"
+  },
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdu-i18n/issues"
+  },
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "main": "index.js",
+  "module": "dist/message-resolver.esm-bundler.js",
+  "types": "dist/message-resolver.d.ts",
+  "engines": {
+    "node": ">= 10"
+  },
+  "buildOptions": {
+    "name": "KduI18nMessageResolver",
+    "formats": [
+      "esm-bundler",
+      "cjs"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

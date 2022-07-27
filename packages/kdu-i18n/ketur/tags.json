@@ -1,0 +1,14 @@
+{
+  "i18n-t": {
+    "attributes": ["keypath", "locale", "tag", "plural", "scope"],
+    "description": "This is Translation component that can be used when HTML interpolation is needed."
+  },
+  "i18n-d": {
+    "attributes": ["value", "format", "locale", "tag", "scope"],
+    "description": "This is Datetime Format component provides a way to use HTML interpolation in pair with number formatting."
+  },
+  "i18n-n": {
+    "attributes": ["value", "format", "locale", "tag", "scope"],
+    "description": "This is Number Format component provides a way to use HTML interpolation in pair with number formatting."
+  }
+}
