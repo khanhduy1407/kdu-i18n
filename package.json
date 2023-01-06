@@ -1,7 +1,7 @@
 {
   "name": "kdu-i18n",
   "description": "Internationalization plugin for Kdu.js",
-  "version": "7.8.0",
+  "version": "7.8.1",
   "author": "NKDuy",
   "bugs": {
     "url": "https://github.com/khanhduy1407/kdu-i18n/issues"

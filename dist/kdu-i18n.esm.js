@@ -1,5 +1,5 @@
 /*!
- * kdu-i18n v7.8.0 
+ * kdu-i18n v7.8.1 
  * (c) 2023 undefined
  * Released under the MIT License.
  */
@@ -1600,6 +1600,6 @@ KduI18n.availabilities = {
   numberFormat: canUseNumberFormat
 };
 KduI18n.install = install;
-KduI18n.version = '7.8.0';
+KduI18n.version = '7.8.1';
 
 export default KduI18n;
