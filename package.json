@@ -41,7 +41,7 @@
     "typescript": "^2.4.1",
     "uglify-js": "^2.7.5",
     "webpack": "^4.9.1",
-    "webpack-serve": "^1.0.2"
+    "webpack-serve": "^4.0.0"
   },
   "files": [
     "dist/kdu-i18n.js",
