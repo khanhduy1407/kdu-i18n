@@ -1,6 +1,6 @@
 /* @flow */
 
-import { warn, isPlainObject, looseEqual } from './util'
+import { warn, isString, isPlainObject, looseEqual } from './util'
 
 export function bind (el: any, binding: Object, knode: any): void {
   if (!assert(el, knode)) { return }
@@ -11,30 +11,42 @@ export function bind (el: any, binding: Object, knode: any): void {
 export function update (el: any, binding: Object, knode: any, oldKNode: any): void {
   if (!assert(el, knode)) { return }
 
-  if (localeEqual(el, knode) && looseEqual(binding.value, binding.oldValue)) { return }
+  const i18n: any = knode.context.$i18n
+  if (localeEqual(el, knode) &&
+    (looseEqual(binding.value, binding.oldValue) &&
+     looseEqual(el._localeMessage, i18n.getLocaleMessage(i18n.locale)))) { return }
 
   t(el, binding, knode)
 }
 
 export function unbind (el: any, binding: Object, knode: any, oldKNode: any): void {
-  if (!assert(el, knode)) { return }
+  const vm: any = knode.context
+  if (!vm) {
+    warn('Kdu instance does not exists in KNode context')
+    return
+  }
 
-  el.textContent = ''
+  const i18n: any = knode.context.$i18n || {}
+  if (!binding.modifiers.preserve && !i18n.preserveDirectiveContent) {
+    el.textContent = ''
+  }
   el._kt = undefined
   delete el['_kt']
   el._locale = undefined
   delete el['_locale']
+  el._localeMessage = undefined
+  delete el['_localeMessage']
 }
 
 function assert (el: any, knode: any): boolean {
   const vm: any = knode.context
   if (!vm) {
-    warn('not exist Kdu instance in KNode context')
+    warn('Kdu instance does not exists in KNode context')
     return false
   }
 
   if (!vm.$i18n) {
-    warn('not exist KduI18n instance in Kdu instance')
+    warn('KduI18n instance does not exists in Kdu instance')
     return false
   }
 
@@ -51,22 +63,23 @@ function t (el: any, binding: Object, knode: any): void {
 
   const { path, locale, args, choice } = parseValue(value)
   if (!path && !locale && !args) {
-    warn('not support value type')
+    warn('value type not supported')
     return
   }
 
   if (!path) {
-    warn('required `path` in k-t directive')
+    warn('`path` is required in k-t directive')
     return
   }
 
   const vm: any = knode.context
-  if (choice) {
+  if (choice != null) {
     el._kt = el.textContent = vm.$i18n.tc(path, choice, ...makeParams(locale, args))
   } else {
     el._kt = el.textContent = vm.$i18n.t(path, ...makeParams(locale, args))
   }
   el._locale = vm.$i18n.locale
+  el._localeMessage = vm.$i18n.getLocaleMessage(vm.$i18n.locale)
 }
 
 function parseValue (value: any): Object {
@@ -75,7 +88,7 @@ function parseValue (value: any): Object {
   let args: any
   let choice: ?number
 
-  if (typeof value === 'string') {
+  if (isString(value)) {
     path = value
   } else if (isPlainObject(value)) {
     path = value.path

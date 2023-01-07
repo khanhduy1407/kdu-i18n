@@ -1,7 +1,26 @@
 /* @flow */
 
 /**
- * utilites
+ * constants
+ */
+
+export const numberFormatKeys = [
+  'style',
+  'currency',
+  'currencyDisplay',
+  'useGrouping',
+  'minimumIntegerDigits',
+  'minimumFractionDigits',
+  'maximumFractionDigits',
+  'minimumSignificantDigits',
+  'maximumSignificantDigits',
+  'localeMatcher',
+  'formatMatcher',
+  'unit'
+]
+
+/**
+ * utilities
  */
 
 export function warn (msg: string, err: ?Error): void {
@@ -14,8 +33,28 @@ export function warn (msg: string, err: ?Error): void {
   }
 }
 
+export function error (msg: string, err: ?Error): void {
+  if (typeof console !== 'undefined') {
+    console.error('[kdu-i18n] ' + msg)
+    /* istanbul ignore if */
+    if (err) {
+      console.error(err.stack)
+    }
+  }
+}
+
+export const isArray = Array.isArray
+
 export function isObject (obj: mixed): boolean %checks {
   return obj !== null && typeof obj === 'object'
+}
+
+export function isBoolean (val: mixed): boolean %checks {
+  return typeof val === 'boolean'
+}
+
+export function isString (val: mixed): boolean %checks {
+  return typeof val === 'string'
 }
 
 const toString: Function = Object.prototype.toString
@@ -50,32 +89,6 @@ export function parseArgs (...args: Array<mixed>): Object {
   return { locale, params }
 }
 
-function getOldChoiceIndexFixed (choice: number): number {
-  return choice
-    ? choice > 1
-      ? 1
-      : 0
-    : 1
-}
-
-function getChoiceIndex (choice: number, choicesLength: number): number {
-  choice = Math.abs(choice)
-
-  if (choicesLength === 2) { return getOldChoiceIndexFixed(choice) }
-
-  return choice ? Math.min(choice, 2) : 0
-}
-
-export function fetchChoice (message: string, choice: number): ?string {
-  /* istanbul ignore if */
-  if (!message && typeof message !== 'string') { return null }
-  const choices: Array<string> = message.split('|')
-
-  choice = getChoiceIndex(choice, choices.length)
-  if (!choices[choice]) { return message }
-  return choices[choice].trim()
-}
-
 export function looseClone (obj: Object): Object {
   return JSON.parse(JSON.stringify(obj))
 }
@@ -87,6 +100,10 @@ export function remove (arr: Array<any>, item: any): Array<any> | void {
       return arr.splice(index, 1)
     }
   }
+}
+
+export function includes (arr: Array<any>, item: any): boolean {
+  return !!~arr.indexOf(item)
 }
 
 const hasOwnProperty = Object.prototype.hasOwnProperty
@@ -146,9 +163,3 @@ export function looseEqual (a: any, b: any): boolean {
     return false
   }
 }
-
-export const canUseDateTimeFormat: boolean =
-  typeof Intl !== 'undefined' && typeof Intl.DateTimeFormat !== 'undefined'
-
-export const canUseNumberFormat: boolean =
-  typeof Intl !== 'undefined' && typeof Intl.NumberFormat !== 'undefined'
